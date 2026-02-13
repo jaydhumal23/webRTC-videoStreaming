@@ -14,12 +14,12 @@ export default defineConfig({
     ],
     proxy: {
       '/socket.io': {
-        target: 'https://mega-backend-eamr.onrender.com/',
+        target: 'https://mega-backend-1jay.onrender.com',
         ws: true,
         changeOrigin: true
       },
       '/api': {  // Also proxy API calls
-        target: 'https://mega-backend-eamr.onrender.com/converso',
+        target: 'https://mega-backend-1jay.onrender.com/converso',
         changeOrigin: true
       }
     }

@@ -14,6 +14,13 @@ const SocketProvider = ({ children }) => {
         if (!user) return;
 
         const newSocket = io(SOCKET_URL, {
+            // 1. VITAL: Enables passing cookies/JWT across domains
+            withCredentials: true,
+
+            // 2. VITAL: Direct WebSocket connection (bypasses Vercel's proxy limits)
+            transports: ["websocket", "polling"],
+
+            // Your existing (good) reconnection logic
             reconnection: true,
             reconnectionDelay: 1000,
             reconnectionAttempts: 10,
